@@ -41,17 +41,17 @@ class GoogleRepoParser(HTMLParser):
         self._all_links = {}
 
     def handle_starttag(self, tag, attrs):
-        re_symver = re.compile(r".+libwebp-(?P<symver>[\w.-]+)-linux")
+        re_semver = re.compile(r".+libwebp-(?P<semver>[\w.-]+)-linux")
         for attr in attrs:
             key, value = attr
             if key == "href":
                 if "-linux-x86-64" in value:
                     url = f"https:{value}"
-                    symver = re_symver.match(url).group("symver")
-                    if symver in self._all_links:
-                        self._all_links[symver].append(url)
+                    semver = re_semver.match(url).group("semver")
+                    if semver in self._all_links:
+                        self._all_links[semver].append(url)
                     else:
-                        self._all_links[symver] = [url]
+                        self._all_links[semver] = [url]
 
     @property
     def all_links(self):
