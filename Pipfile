@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+click = "*"
+exifread = "*"
+Pillow = "*"
+requests = "*"
+
+[dev-packages]
+black = "*"
+mypy = "*"
+isort = "*"
+pylint = "*"
+pytest = "*"
+coverage = "*"
+vcrpy = "*"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
